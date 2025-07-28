@@ -809,6 +809,9 @@ static void chart_draw_column(GtkChart *self,
     
                  
     float column_height = column->value * y_scale;
+    if(column_height < 2.0f) { // value = 0
+      column_height = 2.0f;
+    }
     
     float x = (w * 0.05) + i * (column_width + (w * 0.05));
     float y = h - (0.1 * h) - column_height;
@@ -1347,4 +1350,18 @@ EXPORT void gtk_chart_set_column_label(GtkChart *chart, int index, const char *l
   
   g_free(column->label);
   column->label = g_strdup(label);
+}
+
+EXPORT double gtk_chart_get_column_max_value(GtkChart *chart) {
+  double max_value = 0.0;
+  GSList *l;
+  for(l = chart->column_list; l != NULL; l = l->next) 
+  {  
+    struct chart_column_t *column = l->data;
+    if (column->value > max_value) {
+      max_value = column->value;
+    }
+  }
+
+  return max_value;
 }

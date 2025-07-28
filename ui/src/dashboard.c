@@ -179,7 +179,7 @@ void addBarChartToGrid(GtkWidget *grid, ST_APPLICATION *application) {
   
   GtkChart *chart = GTK_CHART(gtk_chart_new());
   gtk_chart_set_type(chart, GTK_CHART_TYPE_COLUMN);
-  gtk_chart_set_column_ticks(chart, 4);
+  gtk_chart_set_column_ticks(chart, 1);
   gtk_chart_set_font(GTK_CHART(chart), "Sans");
   gtk_chart_set_font_size(GTK_CHART(chart), 14);
   
@@ -229,6 +229,17 @@ void addBarChartToGrid(GtkWidget *grid, ST_APPLICATION *application) {
     gtk_chart_add_column(GTK_CHART(chart), (double)counter, week[i], colors[i]);
 
     tm.tm_mday += 1;
+  }
+  
+  double max_value = gtk_chart_get_column_max_value(GTK_CHART(chart));
+  if(((int)max_value % 2) == 0) {
+    if (max_value >= 4) {
+      gtk_chart_set_column_ticks(GTK_CHART(chart), 4);
+    }
+  }else {
+    if(max_value >= 4) {
+      gtk_chart_set_column_ticks(GTK_CHART(chart), 5);
+    }
   }
   
   GtkWidget *box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 10);
