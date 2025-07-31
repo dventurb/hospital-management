@@ -189,6 +189,7 @@ GtkWidget *createAppointmentTable(ST_CONSULTA *appointments, int n_appointments)
     };
 
     for (int z = 0; z < 7; z++) {
+      gtk_widget_add_css_class(labels[z], "label");
       gtk_grid_attach(GTK_GRID(grid), labels[z], z, i + 1, 1, 1);
       if(z < 5) gtk_label_set_selectable(GTK_LABEL(labels[z]), true);  // get selectable all the labels except the status (emoji).
     }

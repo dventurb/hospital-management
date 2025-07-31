@@ -1,0 +1,116 @@
+.box-card-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  color: #E0E0E0; 
+}
+
+.box-card-info {
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: #FFFFFF; 
+}
+
+.box-card-subtitle {
+  font-size: 0.9rem;
+  color: #B0B0B0; 
+  font-style: italic;
+}
+
+.box-white {
+  background-color: #343740;
+  padding: 4px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.box-blue {
+  border-top: 8px solid #2196F3;
+  background-color: #2C2F36;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.box-image-blue {
+  background-color: #1E3A5F;
+  border-radius: 10px;
+}
+
+.box-green {
+  border-top: 8px solid #4CAF50;
+  background-color: #2C2F36;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.box-image-green {
+  background-color: #1E3F24;
+  border-radius: 10px;
+}
+
+.box-orange {
+  border-top: 8px solid #ED8936;
+  background-color: #2C2F36;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.box-image-orange {
+  background-color: #4E2F1C;
+  border-radius: 10px;
+}
+
+.box-red {
+  border-top: 8px solid #E53E3E;
+  background-color: #2C2F36;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.box-image-red {
+  background-color: #4B1F1F;
+  border-radius: 10px;
+}
+
+.box-purple {
+  border-top: 8px solid #805AD5;
+  background-color: #2C2F36;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.box-image-purple {
+  background-color: #33204B;
+  border-radius: 10px;
+}
+
+.box-yellow {
+  border-top: 8px solid #ECC94B;
+  background-color: #2C2F36;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.box-image-yellow {
+  background-color: #4E4420;
+  border-radius: 10px;
+}
+
+.box-cyan {
+  border-top: 8px solid #319795;
+  background-color: #2C2F36;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.box-image-cyan {
+  background-color: #1E3F3E;
+  border-radius: 10px;
+}

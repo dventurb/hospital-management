@@ -1,0 +1,26 @@
+.leftbar-box {
+  background-color: #1E1E1E;
+  border-right: 1px solid #333333;
+  padding: 16px;
+}
+
+.leftbar-button {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 10px;
+}
+
+.leftbar-button-selected,
+.leftbar-button:hover,
+.leftbar-button:checked {
+  background-color: #2C3E3A;
+  border: none;
+  border-radius: 0;
+  padding: 10px;
+}
+
+.leftbar-button-label {
+  color: #FFFFFF;
+  font-weight: 500;
+}

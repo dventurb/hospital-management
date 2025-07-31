@@ -12,5 +12,9 @@
 12,2,Abel Do Carmo,4,João Amaral Lima,Clínica Geral,18,08,2025,16,17,Agendado
 13,1,Tiago Leitão,5,Alexandre Correia,Cardiologia,15,07,2025,18,19,Realizado
 14,4,Afonso Pereira,1,Diogo Santos,Pediatria,16,07,2025,10,11,Realizado
-14,4,Afonso Pereira,1,Diogo Santos,Pediatria,16,07,2025,11,12,Realizado
+15,4,Afonso Pereira,1,Diogo Santos,Pediatria,16,07,2025,11,12,Realizado
 16,4,Afonso Pereira,6,Ricardo Paulo Sousa,Clínica Geral,16,07,2025,16,17,Realizado
+17,1,Tiago Leitão,1,Diogo Santos,Pediatria,29,07,2025,17,18,Agendado
+18,1,Tiago Leitão,1,Diogo Santos,Pediatria,29,07,2025,18,19,Agendado
+19,1,Tiago Leitão,1,Diogo Santos,Pediatria,29,07,2025,15,16,Agendado
+20,1,Tiago Leitão,1,Diogo Santos,Pediatria,29,07,2025,16,17,Agendado

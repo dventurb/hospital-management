@@ -1,7 +1,8 @@
 #ifndef PATHS_H
 #define PATHS_H 
 
-#define STYLE_CSS_PATH "styles/styles.css"
+#define LIGHT_CSS_PATH "styles/theme_light.css"
+#define DARK_CSS_PATH "styles/theme_dark.css"
 
 #define LOGOTIPO_PATH "assets/icons/common/icon.png"
 
