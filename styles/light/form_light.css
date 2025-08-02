@@ -27,6 +27,11 @@
 .header-label {
   font-weight: bold;
   padding: 4px;
+  color: #000000;
+}
+
+.label {
+  color: #333333;
 }
 
 .back-button {

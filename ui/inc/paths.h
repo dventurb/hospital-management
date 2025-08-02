@@ -1,8 +1,8 @@
 #ifndef PATHS_H
 #define PATHS_H 
 
-#define LIGHT_CSS_PATH "styles/theme_light.css"
-#define DARK_CSS_PATH "styles/theme_dark.css"
+#define LIGHT_THEME_PATH "styles/theme_light.css"
+#define DARK_THEME_PATH "styles/theme_dark.css"
 
 #define LOGOTIPO_PATH "assets/icons/common/icon.png"
 
@@ -46,5 +46,8 @@
 #define BAR_CHART_PATH "assets/icons/core/bar_chart.png"
 
 #define MONTHLY_REPORT_COVER "assets/images/reports/report_cover.png"
+
+#define EXPORT_DATA_PATH "assets/icons/actions/export.png"
+#define IMPORT_DATA_PATH "assets/icons/actions/import.png"
 
 #endif

@@ -11,6 +11,7 @@
 #include "ui_doctors.h"
 #include "ui_appointments.h"
 #include "structs.h"
+#include "settings.h"
 
 // PROTÓTIPOS DAS FUNÇÕES MENUS
 void createMainWindow(GtkApplication *app, gpointer data);

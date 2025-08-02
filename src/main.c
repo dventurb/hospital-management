@@ -24,9 +24,10 @@ int main(int argc, char **argv){
     .staff = funcionarios,
     .clients = clientes,
     .doctors = medicos,
-    .appointments = consultas
+    .appointments = consultas,
+    .theme = strdup(LIGHT_THEME_PATH)
   }; 
-    
+   
   srand(time(NULL));
   
   app = gtk_application_new("clinica.gestao", G_APPLICATION_DEFAULT_FLAGS);
