@@ -5,6 +5,7 @@
 #include "regex.h"
 #include "auxiliares.h"
 #include "cliente.h"
+#include "cjson/cJSON.h"
 
 typedef struct {
   GtkWidget *button;
@@ -52,5 +53,6 @@ SEARCH_TYPE detectSearchType(const char *input);
 GtkStringList *loadSpecialty();
 bool validationTypeSizeDimensions(GFile *file);
 void clearStackPages(GtkWidget *stack);
+char *get_theme_css_file(void);
 
 #endif

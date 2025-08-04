@@ -1,7 +1,7 @@
 CC = gcc
 
 CFLAGS = $(shell pkg-config --cflags gtk4) -Iinc -Iui/inc -Iui/lib/gtkchart -Ilib/hpdftbl -Wall -Wextra -g
-LDFLAGS = $(shell pkg-config --libs gtk4) -lcrypt -lhpdf -lm
+LDFLAGS = $(shell pkg-config --libs gtk4) -lcrypt -lhpdf -lm -lcjson
 
 SRC = $(wildcard src/*.c) $(wildcard ui/src/*.c) $(wildcard ui/lib/gtkchart/*.c)  $(wildcard lib/hpdftbl/*.c)
 OBJ = $(SRC:.c=.o)

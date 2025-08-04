@@ -309,4 +309,41 @@ void clearStackPages(GtkWidget *stack) {
   }
 }
 
+char *get_theme_css_file(void) {
+  FILE *file = fopen(SETTINGS_PATH, "r");
+  if(!file) {
+    return NULL;
+  }
 
+  fseek(file, 0, SEEK_END);
+  long size = ftell(file);
+  rewind(file);
+
+  char *data = malloc(size + 1);
+  if(!data) {
+    fclose(file);
+    return NULL;
+  }
+
+  fread(data, 1, size, file);
+  data[size] = '\0';
+
+  fclose(file);
+
+  cJSON *json = cJSON_Parse(data);
+  if(!json) {
+    free(data);
+    return NULL;
+  }
+  free(data);
+
+  const cJSON *theme = cJSON_GetObjectItemCaseSensitive(json, "css_file");
+  char *string = NULL;
+  if(cJSON_IsString(theme)) {
+    string = strdup(theme->valuestring);
+  }
+
+  cJSON_Delete(json);
+  
+  return string;
+}

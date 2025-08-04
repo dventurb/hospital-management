@@ -1,6 +1,8 @@
 #ifndef PATHS_H
 #define PATHS_H 
 
+#define SETTINGS_PATH ".config/settings.json"
+
 #define LIGHT_THEME_PATH "styles/theme_light.css"
 #define DARK_THEME_PATH "styles/theme_dark.css"
 
