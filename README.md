@@ -52,6 +52,7 @@ All dependencies are automatically installed by the install script (install.sh).
 - **libharu** (`libhpdf-dev`)
 - **hpdftbl** (included in `lib/hpdftbl/`)
 - **crypt** (`libxcrypt-dev`)
+- **cJSON** (`libcjson-dev`)
 - **Build tools**: `gcc`, `make`, `pkg-config`
 
 ## Features 
@@ -60,6 +61,7 @@ All dependencies are automatically installed by the install script (install.sh).
 - Generate **PDF reports** using `libharu` and `hpdftbl`.
 - Visualize data with **Pie Chart** and **Bar Chart**.
 - Password with **SHA-256** and salt generation for unique hashes.
+- Support for **dark** and **light** themes.
 
 
 
