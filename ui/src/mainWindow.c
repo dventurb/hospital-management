@@ -28,7 +28,7 @@ void createMainWindow(GtkApplication *app, gpointer data) {
   initializeUIAppointments(stack, application);
   initializeSettings(stack, application);
   
-  char *theme = get_theme_css_file();
+  char *theme = get_current_theme_path();
 
   GtkCssProvider *provider = gtk_css_provider_new();
   GFile *css_file = g_file_new_for_path(theme);

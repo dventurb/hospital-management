@@ -137,8 +137,8 @@ static void changedDropdownTheme(GtkDropDown *dropdown, GParamSpec *pspec, gpoin
   int position = gtk_drop_down_get_selected(GTK_DROP_DOWN(dropdown));
 
   if(position == 0) {
-    application->theme = strdup(LIGHT_THEME_PATH);  
+    set_theme_settings(LIGHT_THEME_PATH, "Light");
   }else if(position == 1) {
-    application->theme = strdup(DARK_THEME_PATH);
+    set_theme_settings(DARK_THEME_PATH, "Dark");
   }
 }

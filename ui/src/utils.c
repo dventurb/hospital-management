@@ -309,7 +309,7 @@ void clearStackPages(GtkWidget *stack) {
   }
 }
 
-char *get_theme_css_file(void) {
+char *get_current_theme_path(void) {
   FILE *file = fopen(SETTINGS_PATH, "r");
   if(!file) {
     return NULL;
@@ -346,4 +346,53 @@ char *get_theme_css_file(void) {
   cJSON_Delete(json);
   
   return string;
+}
+
+void set_theme_settings(const char *path, const char *name) {
+  FILE *file = fopen(SETTINGS_PATH, "r");
+  if(!file) {
+    return;
+  }
+
+  fseek(file, 0, SEEK_END);
+  long size = ftell(file);
+  rewind(file);
+
+  char *data = malloc(size + 1);
+  if(!data) {
+    fclose(file);
+    return;
+  }
+
+  fread(data, 1, size, file);
+  data[size] = '\0';
+
+  fclose(file);
+
+  cJSON *json = cJSON_Parse(data);
+  if(!json) {
+    free(data);
+    return;
+  }
+  free(data);
+  
+  cJSON_ReplaceItemInObjectCaseSensitive(json, "theme", cJSON_CreateString(name));
+
+  cJSON_ReplaceItemInObjectCaseSensitive(json, "css_file", cJSON_CreateString(path));
+
+  char *new = cJSON_Print(json);
+  if(!new) {
+    return;
+  }
+
+  cJSON_Delete(json);
+
+  file = fopen(SETTINGS_PATH, "w");
+  if(!file) {
+    return;
+  }
+
+  fwrite(new, 1, strlen(new), file);
+  fclose(file);
+  free(new);
 }

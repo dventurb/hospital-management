@@ -53,6 +53,7 @@ SEARCH_TYPE detectSearchType(const char *input);
 GtkStringList *loadSpecialty();
 bool validationTypeSizeDimensions(GFile *file);
 void clearStackPages(GtkWidget *stack);
-char *get_theme_css_file(void);
+char *get_current_theme_path(void);
+void set_theme_settings(const char *path, const char *name);
 
 #endif

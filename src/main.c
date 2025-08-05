@@ -24,8 +24,7 @@ int main(int argc, char **argv){
     .staff = funcionarios,
     .clients = clientes,
     .doctors = medicos,
-    .appointments = consultas,
-    .theme = strdup(LIGHT_THEME_PATH)
+    .appointments = consultas
   }; 
    
   srand(time(NULL));

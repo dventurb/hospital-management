@@ -83,7 +83,6 @@ typedef struct {
   ST_CLIENTE *clients;
   ST_MEDICO *doctors;
   ST_CONSULTA *appointments;
-  char *theme;
 }ST_APPLICATION;
 
 #endif
