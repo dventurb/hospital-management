@@ -7,7 +7,8 @@ install_with_apt() {
     build-essential \
     pkg-config \
     libhpdf-dev \
-    libgtk-4-dev
+    libgtk-4-dev \
+    libcjson-dev
 }
 
 # Red Hat / CentOS
@@ -17,7 +18,8 @@ install_with_dnf() {
     make \
     pkgconf-pkg-config \
     libharu-devel \
-    gtk4-devel
+    gtk4-devel \
+    cjson-devel
 }
 
 # Arch Linux
@@ -26,7 +28,8 @@ install_with_pacman() {
     base-devel \
     pkgconf \
     libharu \
-    gtk4
+    gtk4 \
+    cjson
 }
 
 if [ -f /etc/arch-release ]; then
