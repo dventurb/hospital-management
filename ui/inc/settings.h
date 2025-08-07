@@ -6,7 +6,7 @@
 #include "userMenu.h"
 
 void initializeSettings(GtkWidget *stack, ST_APPLICATION *application);
-void addGeneralToGrid(GtkWidget *grid);
-void addAppearanceToGrid(GtkWidget *grid, ST_APPLICATION *application);
+void addGeneralToGrid(GtkWidget *grid, ST_APPLICATION *application);
+void addAppearanceToGrid(GtkWidget *grid);
 
 #endif

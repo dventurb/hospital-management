@@ -51,5 +51,6 @@
 
 #define EXPORT_DATA_PATH "assets/icons/actions/export.png"
 #define IMPORT_DATA_PATH "assets/icons/actions/import.png"
+#define REPORT_MONTHLY_PATH "assets/icons/actions/report.png"
 
 #endif

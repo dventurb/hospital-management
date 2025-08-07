@@ -2,6 +2,7 @@
 
 // CALLBACKS
 static void changedDropdownTheme(GtkDropDown *dropdown, GParamSpec *pspec, gpointer data);
+static void clickedButtonMonthlyReport(GtkButton *button, gpointer data);
 
 void initializeSettings(GtkWidget *stack, ST_APPLICATION *application) {
   GtkWidget *rigth_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
@@ -28,11 +29,11 @@ void initializeSettings(GtkWidget *stack, ST_APPLICATION *application) {
   gtk_widget_set_margin_bottom(grid, 30);
   gtk_box_append(GTK_BOX(rigth_box), grid);
 
-  addGeneralToGrid(grid);
-  addAppearanceToGrid(grid, application);
+  addGeneralToGrid(grid, application);
+  addAppearanceToGrid(grid);
 }
 
-void addGeneralToGrid(GtkWidget *grid) {
+void addGeneralToGrid(GtkWidget *grid, ST_APPLICATION *application) {
   GtkWidget *label = gtk_label_new("General");
   gtk_widget_add_css_class(label, "title-settings");
   gtk_widget_set_halign(label, GTK_ALIGN_START);
@@ -97,18 +98,39 @@ void addGeneralToGrid(GtkWidget *grid) {
   gtk_widget_set_margin_end(button.button, 10);
   gtk_widget_set_size_request(button.button, 30, 10);
   gtk_widget_add_css_class(button.button, "button-settings");
+  gtk_box_append(GTK_BOX(box), button.button);  
+
+  box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+  gtk_widget_add_css_class(box, "box-settings");
+  gtk_grid_attach(GTK_GRID(grid), box, 0, 4, 1, 1);
+
+  label = gtk_label_new("Monthly report");
+  gtk_widget_add_css_class(label, "label-settings");
+  gtk_box_append(GTK_BOX(box), label);
+
+  spacer = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+  gtk_widget_set_hexpand(spacer, true);
+  gtk_box_append(GTK_BOX(box), spacer);
+  
+  createButtonWithImageLabel(&button, REPORT_MONTHLY_PATH, NULL, BUTTON_ORIENTATION_VERTICAL, BUTTON_POSITION_FIRST_IMAGE);
+  gtk_widget_set_margin_top(button.button, 5);
+  gtk_widget_set_margin_bottom(button.button, 5);
+  gtk_widget_set_margin_end(button.button, 10);
+  gtk_widget_set_size_request(button.button, 30, 10);
+  gtk_widget_add_css_class(button.button, "button-settings");
   gtk_box_append(GTK_BOX(box), button.button);
+  g_signal_connect(button.button, "clicked", G_CALLBACK(clickedButtonMonthlyReport), application);
 }  
 
-void addAppearanceToGrid(GtkWidget *grid, ST_APPLICATION *application) {
+void addAppearanceToGrid(GtkWidget *grid) {
   GtkWidget *label = gtk_label_new("Appearance");
   gtk_widget_add_css_class(label, "title-settings");
   gtk_widget_set_halign(label, GTK_ALIGN_START);
-  gtk_grid_attach(GTK_GRID(grid), label, 0, 4, 1, 1);
+  gtk_grid_attach(GTK_GRID(grid), label, 0, 5, 1, 1);
 
   GtkWidget *box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
   gtk_widget_add_css_class(box, "box-settings");
-  gtk_grid_attach(GTK_GRID(grid), box, 0, 5, 1, 1);
+  gtk_grid_attach(GTK_GRID(grid), box, 0, 6, 1, 1);
 
   label = gtk_label_new("Theme");
   gtk_widget_add_css_class(label, "label-settings");
@@ -126,13 +148,19 @@ void addAppearanceToGrid(GtkWidget *grid, ST_APPLICATION *application) {
   gtk_drop_down_set_show_arrow(GTK_DROP_DOWN(dropdown), true);
   gtk_widget_add_css_class(dropdown, "dropdown-settings");
   gtk_box_append(GTK_BOX(box), dropdown);
-  g_signal_connect(dropdown, "notify::selected", G_CALLBACK(changedDropdownTheme), application);
+  g_signal_connect(dropdown, "notify::selected", G_CALLBACK(changedDropdownTheme), NULL);
+
+  char *theme = get_current_theme_name();
+  if(strcmp(theme, "Light") == 0) {
+    gtk_drop_down_set_selected(GTK_DROP_DOWN(dropdown), 0);
+  }else if(strcmp(theme, "Dark") == 0) {
+    gtk_drop_down_set_selected(GTK_DROP_DOWN(dropdown), 1);
+  }
 }
 
 static void changedDropdownTheme(GtkDropDown *dropdown, GParamSpec *pspec, gpointer data) {
   (void)pspec; // unused
-
-  ST_APPLICATION *application = (ST_APPLICATION *)data;
+  (void)data;  // unused
 
   int position = gtk_drop_down_get_selected(GTK_DROP_DOWN(dropdown));
 
@@ -141,4 +169,12 @@ static void changedDropdownTheme(GtkDropDown *dropdown, GParamSpec *pspec, gpoin
   }else if(position == 1) {
     set_theme_settings(DARK_THEME_PATH, "Dark");
   }
+}
+
+static void clickedButtonMonthlyReport(GtkButton *button, gpointer data) {
+  (void)button;
+  
+  ST_APPLICATION *application = (ST_APPLICATION *)data;
+
+  createReportPDF(application);
 }

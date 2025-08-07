@@ -348,6 +348,45 @@ char *get_current_theme_path(void) {
   return string;
 }
 
+char *get_current_theme_name(void) {
+  FILE *file = fopen(SETTINGS_PATH, "r");
+  if(!file) {
+    return NULL;
+  }
+
+  fseek(file, 0, SEEK_END);
+  long size = ftell(file);
+  rewind(file);
+
+  char *data = malloc(size + 1);
+  if(!data) {
+    fclose(file);
+    return NULL;
+  }
+
+  fread(data, 1, size, file);
+  data[size] = '\0';
+
+  fclose(file);
+
+  cJSON *json = cJSON_Parse(data);
+  if(!json) {
+    free(data);
+    return NULL;
+  }
+  free(data);
+
+  const cJSON *theme = cJSON_GetObjectItemCaseSensitive(json, "theme");
+  char *string = NULL;
+  if(cJSON_IsString(theme)) {
+    string = strdup(theme->valuestring);
+  }
+
+  cJSON_Delete(json);
+  
+  return string;
+}
+
 void set_theme_settings(const char *path, const char *name) {
   FILE *file = fopen(SETTINGS_PATH, "r");
   if(!file) {

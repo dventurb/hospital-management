@@ -82,9 +82,6 @@ void initializeUIAppointments(GtkWidget *stack, ST_APPLICATION *application) {
   g_object_set_data(G_OBJECT(rigth_box), "AppointmentTable", grid);
   gtk_widget_set_halign(grid, GTK_ALIGN_CENTER);
   gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scrolled), grid);
-
-  //TODO: Not in the  correct place. 
-  createReportPDF(application);
 }
 
 /** 
